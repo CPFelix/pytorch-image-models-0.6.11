@@ -1,0 +1,1 @@
+bash ./distributed_train.sh 6 /home/chenpengfei/dataset/data_face_classify --model mobilenetv2_050 --sched cosine --epochs 150 --warmup-epochs 5 --lr 0.4 --reprob 0.5 --remode pixel --batch-size 2048 --amp -j 4 --input-size 3 128 128 --pretrained --log-wandb  --num-classes 2
