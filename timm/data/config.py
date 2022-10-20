@@ -50,6 +50,7 @@ def resolve_data_config(args, default_cfg={}, model=None, use_test_size=False, v
         new_config['mean'] = mean
     elif 'mean' in default_cfg:
         new_config['mean'] = default_cfg['mean']
+    new_config['mean'] = IR_DEFAULT_MEAN
 
     # resolve dataset + model std deviation for normalization
     new_config['std'] = IMAGENET_DEFAULT_STD
@@ -62,6 +63,7 @@ def resolve_data_config(args, default_cfg={}, model=None, use_test_size=False, v
         new_config['std'] = std
     elif 'std' in default_cfg:
         new_config['std'] = default_cfg['std']
+    new_config['std'] = IR_DEFAULT_STD
 
     # resolve default crop percentage
     crop_pct = DEFAULT_CROP_PCT

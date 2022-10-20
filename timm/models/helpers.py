@@ -552,7 +552,8 @@ def build_model_with_cfg(
                 model,
                 pretrained_cfg=pretrained_cfg,
                 num_classes=num_classes_pretrained,
-                in_chans=kwargs.get('in_chans', 3),
+                # in_chans=kwargs.get('in_chans', 3),
+                in_chans=1,
                 filter_fn=pretrained_filter_fn,
                 strict=pretrained_strict)
 
