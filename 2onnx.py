@@ -68,7 +68,7 @@ def main():
     model = create_model(
         args.model,
         num_classes=args.num_classes,
-        in_chans=3,
+        in_chans=1,
         pretrained=args.pretrained,
         checkpoint_path=args.checkpoint)
 
@@ -85,9 +85,9 @@ def main():
 
     model.eval()
 
-    onnx_name = "./output/train/20221019-211135-mobilenetv2_050-128/model_best.onnx"
+    onnx_name = args.checkpoint.replace(".pth.tar", ".onnx")
     with torch.no_grad():
-        input = torch.randn(1, 3, 128, 128).cuda()
+        input = torch.randn(1, 1, 128, 128).cuda()
         labels = model(input)
         torch.onnx.export(model, input, onnx_name, verbose=False, opset_version=10,
                           input_names=["input"], output_names=['classifier'])
